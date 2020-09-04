@@ -1,0 +1,7 @@
+
+#define numInsightsBySD(values)[[if (values==null){[[global.values=map(groupByJson(data, product_idx, actual_sales_idx), x->x[1])]]}
+if (len(values) <= 0) { [[ 0 ]] } else { [[
+mean = sum(values) / len(values);
+populationStandardDeviation = root(sum(map(values, x->power(abs(x-(sum(values) / len(values))), 2))) / len(values));
+len(filter(values, a->(abs(a) >= (abs(mean)+populationStandardDeviation) || (abs(a) <= abs(mean)-populationStandardDeviation))));
+]] }]]

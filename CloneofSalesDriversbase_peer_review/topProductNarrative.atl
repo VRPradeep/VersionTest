@@ -1,0 +1,5 @@
+
+#define topProductNarrative(result) [[
+"<strong>[[result.product]]</strong> performed well accounting for [[result.pct_of_sales]]% of the total sales ([[formatCurrency(result.product_sales)]]). This was mainly driven by [[map(result.drivers,x->"[[x.country]] [[formatCurrency(x.sales)]] ([[x.pct_sales]]%)")]].
+
+"]]

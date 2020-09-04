@@ -1,0 +1,3 @@
+
+#define columnIdx(name) [[if (name==null){[[global.name='Product']]};
+indexOf(column_names,name)]]

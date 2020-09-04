@@ -1,0 +1,5 @@
+
+#define productNarrative(result) [[if (products_desc[0][0]!=asString(result.product)){[[
+"The value of sales for [[result.product]] is [[formatCurrency(result.product_sales)]], contributing [[result.pct_of_sales]]% of the total. This was mainly driven by [[map(result.drivers,x->"[[x.country]] [[formatCurrency(x.sales)]] ([[x.pct_sales]]%)")]].
+
+"]]} else {[[topProductNarrative(result)]]}]]

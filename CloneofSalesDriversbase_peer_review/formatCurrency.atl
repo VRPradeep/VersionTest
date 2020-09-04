@@ -1,0 +1,4 @@
+
+#define formatCurrency(value)[[
+abbreviateNumber(currencyFormat(value))
+]]

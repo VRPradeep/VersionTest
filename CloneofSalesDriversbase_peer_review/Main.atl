@@ -1,0 +1,7 @@
+
+[[overviewNarrative]]
+
+[[products_desc=top(products_desc,numInsightsByThreshold(map(products_desc,x->x[1])));
+//products_desc=top(products_desc,numInsightsBySD(map(products_desc,x->x[1])));
+country_results=map(products_desc,x->countryAnalytics(filter(data,y->y[product_idx]==x[0])));
+forAll(country_results,x->productNarrative(x))]]

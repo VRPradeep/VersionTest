@@ -1,0 +1,4 @@
+
+#define numInsightsByThreshold(values) [[if (values==null){[[global.values=map(groupByJson(data, product_idx, actual_sales_idx), x->x[1])]]}
+percentList=map(values,x->percentage(x,total_sales));
+toReachThreshold(percentList,50)]]

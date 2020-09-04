@@ -1,0 +1,15 @@
+
+#define countryAnalytics(filteredData) [[if (filteredData==null){[[global.filteredData=filter(data,x->x[product_idx]=='Saber')]]}
+//Grab top countries by sales;
+country_grouped = groupByJson(filteredData,country_idx,actual_sales_idx)
+top_countries = top(country_grouped, 3)
+
+//Get product name, total sales for product and calculate the percentage of total sales;
+prod_name = unique(map(filteredData,x->x[product_idx]))
+prod_sales = sum(map(filteredData,x->x[actual_sales_idx]))
+pct_of_sales = round(percentage(prod_sales, total_sales),2)
+
+//Calculate pct of sales for product of driving countries and store data in an object;
+country_driver_data = map(top_countries, x->(country=x[0], sales=x[1], pct_sales=round(percentage(x[1], prod_sales),2)))
+
+(product=prod_name, product_sales=prod_sales, pct_of_sales=pct_of_sales, drivers=country_driver_data)]]
